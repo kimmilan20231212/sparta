@@ -1,346 +1,82 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://grayson-choi.github.io/advent_calendar/">
-  <meta property="og:title" content="스파르타코딩클럽 크리스마스 디데이 캘린더">
-  <meta property="og:image" content="image/OGimage.png">
-  <meta property="og:description" content="크리스마스까지 하루가 기다려지는 즐거움, 크리스마스 디데이 캘린더를 함께 만들어봐요!">
-  <meta property="og:site_name" content="SCC Advent Calendar">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>나만의 중고마켓</title>
+  <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/easygpt/default.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <style>
+    .card {
+        transition: transform 0.3s ease-in-out;
+      }
 
-  <title>Sparta Advend Calendar 2023</title>
-  <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="snow.css">
-  <link rel="stylesheet" href="share.css">
-  <link rel="stylesheet" href="music.css">
-
+      .card:hover {
+        transform: scale(1.05);
+      }
+  </style>
 </head>
 
 <body>
-  <!-- 이 곳에 뼈대 코드를 입력! -->
-  <div class="snow-wrap">
-    <div></div>
+  <div class="hero bg-dark text-center py-5">
+    <h1 class="text-white">나만의 르탄마켓</h1>
+    <h2 class="text-white">집에 있는 물건을 팝니다!</h2>
   </div>
-  <section class="grid-1">
-    <div class="title flex-col item-baseline">
-      <img src="image/merry.png">
-      <div class="countdown">크리스마스이브까지 <span id="countdown" class="countdown"></span>남음
-
+  <!-- 여기 -->
+  <div class="container mt-4">
+    <div class="row">
+      <!-- 중고물품1: 냄비 -->
+      <div class="col-md-4 mb-4">
+        <div class="card" style="width: 18rem;">
+          <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRpsjBdSWadGHqp_W3xebKUFYrwosal4EXG2ObSEkaur6vR1-nyjXreSvKC4OlE_nOYdNaxd9pRoa46MLMzc0g8bT-YfAQuaoYDYQ0rBzNkudKfW9pa8Ki4_LRKno8L&usqp=CAc" class="card-img-top" alt="냄비 이미지">
+          <div class="card-body">
+            <h5 class="card-title">냄비</h5>
+            <h6 class="card-subtitle mb-2 text-muted">5만원</h6>
+            <p class="card-text">한 번 밖에 안쓴 냄비 팝니다. 부모님이 독립 할 때 주신 거에요!</p>
+            <a href="https://www.spartacodingclub.kr/" target="_blank" class="card-link">자세히 보기</a>
+          </div>
+        </div>
+      </div>
+      <!-- 중고물품2: 냉장고 -->
+      <div class="col-md-4 mb-4">
+        <div class="card" style="width: 18rem;">
+          <img src="data:image/jpeg;base64,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" class="card-img-top" alt="냉장고 이미지">
+          <div class="card-body">
+            <h5 class="card-title">냉장고</h5>
+            <h6 class="card-subtitle mb-2 text-muted">50만원</h6>
+            <p class="card-text">급처 판매합니다. 사용감 있지만 성능은 좋아요!</p>
+            <a href="https://www.spartacodingclub.kr/" target="_blank" class="card-link">자세히 보기</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card" style="width: 18rem;">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgbEcNdZ-CWSLT6oSeZvj_qp6Bh5MqEOiDSmXOCNIQUeHrWf0o34S6&usqp=CAE&s" class="card-img-top" alt="돌가마">
+          <div class="card-body"></div>  
+            <h5 class="card-title">돌가마</h5>
+            <h6 class="card-subtitle mb-2 text-muted">10만원</h6>
+            <p class="card-text">급처 판매합니다. 사용감 있지만 성능은 따뜻하고 아주 좋아요!</p>
+            <a href="https://www.spartacodingclub.kr/" target="_blank" class="card-link">자세히 보기</a>
+          </div>
+        </div>
+      </div>
+      <!-- 중고물품3: 책장 -->
+      <div class="col-md-4 mb-4">
+        <div class="card" style="width: 18rem;">
+          <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQXAraWRVnlZrl1IEQ23ZlU8oB6qedBh7j3b3hMdl6ZVjIcxY75r3DlQ8vjLUSlFXhkCJch41mDFYQhpvP8KTJaE550BePadHqnAh71SuhcV7NEK6fIPKoRxlYjmAf_2RyNKNe0O3pv4XM&usqp=CAc" class="card-img-top" alt="책장 이미지">
+          <div class="card-body">
+            <h5 class="card-title">책장</h5>
+            <h6 class="card-subtitle mb-2 text-muted">30만원</h6>
+            <p class="card-text">책과 소품을 정리하기에 딱 좋은 크기의 책장 팝니다.</p>
+            <a href="https://www.spartacodingclub.kr/" target="_blank" class="card-link">자세히 보기</a>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="day-1">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">1</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-2">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">2</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-3">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">3</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-4">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">4</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-5">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">5</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-6">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">6</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-7">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">7</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-8">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">8</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-9">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">9</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-10">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">10</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-11">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">11</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-12">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">12</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-13">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">13</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-14">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">14</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-15">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">15</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-16">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">16</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-17">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">17</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-18">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">18</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-19">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">19</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-20">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">20</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-21">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">21</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-22">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">22</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-23">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">23</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-    <div class="day-24">
-      <label>
-        <input type="checkbox">
-        <div class="door">
-          <div class="front">
-            <span class="date-num">24</span>
-          </div>
-          <div class="back"></div>
-        </div>
-
-      </label>
-    </div>
-  </section>
-  <footer>
-    <div class="flex-row">
-      <button id="shareButton">공유하기</button>
-      <button id="studyButton"><a href="https://spartacodingclub.kr/">만들러 가기</a></button>
-    </div>
-    <div class="flex-row">
-      <audio class="bgm" src="carol.mp3" preload="auto" style="display: none;"></audio>
-      <div class="sound"></div>
-      <div class="sound stop"></div>
-    </div>
-    <p class="copyright">Copyright ⓒ TeamSparta All rights reserved. ☃️</p>
-  </footer>
-
-
-
-  <script src="index.js"></script>
-  <script src="share.js"></script>
-  <script src="music.js"></script>
-  <script src="countdown.js"></script>
+  </div>
 </body>
 
 </html>
